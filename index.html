@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusiAI — AI Music & Video with Your Real Voice</title>
+  <meta name="description" content="Create AI music and video with your verified natural voice. Stream. Earn. No bots. Real artists only." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#" class="logo" data-view="home">
+          <span class="logo-mark">M</span>
+          <span class="logo-text">MusiAI</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#" data-view="home">Home</a>
+          <a href="#" data-view="discover">Discover</a>
+          <a href="#" data-view="how">How it works</a>
+          <a href="#" data-view="artist" class="artist-only hidden">Studio</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="btn ghost" id="btn-login" data-view="auth">Sign in</button>
+          <button class="btn primary" id="btn-start" data-view="auth">Start creating</button>
+          <div id="user-chip" class="user-chip hidden">
+            <span id="user-name">Artist</span>
+            <button class="btn tiny" id="btn-logout">Out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="view-home" class="view active">
+        <div class="hero">
+          <div class="hero-badge">Real voice. Real identity. Real pay.</div>
+          <h1>AI music & video<br /><span class="grad">with your voice</span></h1>
+          <p class="hero-sub">
+            Verify once with a live voice capture. Every track you upload is checked against your voice.
+            Listeners stream you. You earn. No bots. No stolen identities.
+          </p>
+          <div class="hero-cta">
+            <button class="btn primary lg" data-view="auth">Create free artist account</button>
+            <button class="btn ghost lg" data-view="discover">Browse verified artists</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong id="stat-artists">0</strong><span>Verified artists</span></div>
+            <div><strong id="stat-tracks">0</strong><span>Voice-matched tracks</span></div>
+            <div><strong>$0.50</strong><span>/month to stream</span></div>
+          </div>
+        </div>
+
+        <div class="strip">
+          <div class="strip-item"><span class="dot"></span> Live voice verification</div>
+          <div class="strip-item"><span class="dot"></span> AI music must match your voice</div>
+          <div class="strip-item"><span class="dot"></span> Your face on your videos</div>
+          <div class="strip-item"><span class="dot"></span> Paid per stream</div>
+        </div>
+
+        <section class="section">
+          <h2>Why MusiAI exists</h2>
+          <div class="cards-3">
+            <article class="card">
+              <div class="card-icon">🎙</div>
+              <h3>Identity-locked AI</h3>
+              <p>We capture your natural voice live. Every upload is scored against that fingerprint. No match → blocked from earning.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">🤖</div>
+              <h3>AI as your studio</h3>
+              <p>Generate music and video with AI — but the voice and face are yours. You stay the artist. AI is the instrument.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">💰</div>
+              <h3>Stream → earn</h3>
+              <p>Listeners pay $0.50/month. Artists earn from streams of their verified tracks. Creativity in. Money out.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section dark">
+          <h2>Built to beat platforms that freeze AI out</h2>
+          <p class="muted">Spotify and legacy catalogs weren’t designed for verified AI-assisted artists. MusiAI is. Human-first. Bot-blocked. Payment-ready.</p>
+          <button class="btn primary" data-view="auth">Claim your stage</button>
+        </section>
+      </section>
+
+      <section id="view-how" class="view">
+        <div class="section">
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li><strong>1. Sign up as artist</strong><p>Create account. Prove you’re human.</p></li>
+            <li><strong>2. Live voice capture</strong><p>Read a short prompt into your mic. We store your speech pattern fingerprint. One-time (re-verify anytime).</p></li>
+            <li><strong>3. Create with AI</strong><p>Generate or upload AI music/video using your voice and likeness.</p></li>
+            <li><strong>4. Voice-match gate</strong><p>Before a track can earn, it must pass the match against your saved voice. Fail → not published for pay.</p></li>
+            <li><strong>5. Listeners stream</strong><p>$0.50/month subscription. Artists paid from the pool by streams.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="view-auth" class="view">
+        <div class="auth-box">
+          <h2 id="auth-title">Create artist account</h2>
+          <p class="muted" id="auth-sub">Verified humans only. One voice per account.</p>
+          <form id="auth-form">
+            <label>Display name
+              <input type="text" id="auth-name" placeholder="Your stage name" required minlength="2" />
+            </label>
+            <label>Email
+              <input type="email" id="auth-email" placeholder="you@email.com" required />
+            </label>
+            <label>I am a
+              <select id="auth-role">
+                <option value="artist">Artist (create + earn)</option>
+                <option value="listener">Listener (stream)</option>
+              </select>
+            </label>
+            <button type="submit" class="btn primary block">Continue</button>
+          </form>
+          <p class="tiny muted">MVP: accounts stored in this browser only. Production will use secure cloud + real voice biometrics.</p>
+        </div>
+      </section>
+
+      <section id="view-voice" class="view">
+        <div class="section narrow">
+          <h2>Live voice verification</h2>
+          <p class="muted">Read the line below out loud. We’ll capture a short sample and lock your voice fingerprint to this account.</p>
+          <div class="prompt-box" id="voice-prompt">
+            “The future of music is human identity amplified by machines — not replaced by them.”
+          </div>
+          <div class="voice-ui">
+            <div class="wave" id="wave"></div>
+            <p id="voice-status">Ready when you are.</p>
+            <div class="voice-btns">
+              <button class="btn primary" id="btn-rec-start">Start capture</button>
+              <button class="btn ghost" id="btn-rec-stop" disabled>Stop</button>
+            </div>
+            <audio id="voice-playback" controls class="hidden"></audio>
+          </div>
+          <button class="btn primary block hidden" id="btn-save-voice">Save voice fingerprint & enter studio</button>
+        </div>
+      </section>
+
+      <section id="view-artist" class="view">
+        <div class="section">
+          <div class="studio-head">
+            <div>
+              <h2>Studio</h2>
+              <p class="muted">Upload AI tracks. Only voice-matched tracks earn.</p>
+            </div>
+            <div class="studio-stats">
+              <div class="pill"><span id="earn-total">$0.00</span> earned</div>
+              <div class="pill"><span id="stream-total">0</span> streams</div>
+              <div class="pill" id="voice-badge">Voice: not verified</div>
+            </div>
+          </div>
+
+          <div class="upload-panel">
+            <h3>Upload AI music / video</h3>
+            <form id="upload-form">
+              <label>Title
+                <input type="text" id="track-title" placeholder="Song title" required />
+              </label>
+              <label>Type
+                <select id="track-type">
+                  <option value="audio">AI Music (audio)</option>
+                  <option value="video">AI Video (with your likeness)</option>
+                </select>
+              </label>
+              <label>Audio / video file
+                <input type="file" id="track-file" accept="audio/*,video/*" required />
+              </label>
+              <label class="check">
+                <input type="checkbox" id="track-own-voice" required />
+                I confirm this uses my verified voice / likeness
+              </label>
+              <button type="submit" class="btn primary">Run voice-match & publish</button>
+            </form>
+            <div id="match-result" class="match-result hidden"></div>
+          </div>
+
+          <h3>Your catalog</h3>
+          <div id="artist-tracks" class="track-list empty-state">No tracks yet. Upload your first AI track after voice verification.</div>
+        </div>
+      </section>
+
+      <section id="view-discover" class="view">
+        <div class="section">
+          <div class="studio-head">
+            <div>
+              <h2>Discover</h2>
+              <p class="muted">Only voice-verified tracks appear here.</p>
+            </div>
+            <div class="sub-box" id="sub-box">
+              <span>Listener plan: <strong>$0.50/mo</strong></span>
+              <button class="btn primary" id="btn-subscribe">Subscribe</button>
+            </div>
+          </div>
+          <div id="discover-list" class="track-list empty-state">No public tracks yet. Be the first verified artist.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>MusiAI MVP · Identity-locked AI music & video</span>
+        <span>Listeners $0.50/mo · Artists paid on streams</span>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
